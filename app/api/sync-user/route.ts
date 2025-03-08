@@ -9,7 +9,7 @@ import axios from "axios";
 // Constants
 const MULTIVERSE_API_URL = "https://bu-multiverse.vercel.app/api/auth/login";
 const MULTIVERSE_APP_NAME = "CampusCupid";
-const MULTIVERSE_API_KEY = "d8dfa21f49dd5a0a7957416003f7ead2840f17a62adb007537b28c29382e2633";
+const MULTIVERSE_API_KEY = "f7e9b730ff7e2d2c4aba068c01393e98239e859aebd71e504d35eeeb009fde90";
 
 export async function POST() {
   console.log("🔹 sync-user API called with POST method");
