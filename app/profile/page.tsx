@@ -1,12 +1,12 @@
 import React from "react";
 import { getServerSession } from "next-auth";
-import { authConfig } from "../../lib/auth";
+import { authOptions } from "@/lib/auth"; 
 import { LogoutButton } from "../../components/auth/LogoutButton";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function ProfilePage() {
-  const session = await getServerSession(authConfig);
+  const session = await getServerSession(authOptions);
 
   return (
     <div className="min-h-screen bg-gray-50">

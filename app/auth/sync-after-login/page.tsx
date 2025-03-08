@@ -44,15 +44,25 @@ export default function SyncAfterLoginPage() {
           let errorMessage = "Error syncing account.";
           
           // Extract more detailed error message if available
-          const err = error as any;
-          if (err.response) {
-            errorMessage += ` Server responded with: ${err.response.status} ${err.response.statusText}`;
-            console.log("Response data:", err.response.data);
-          } else if (err.request) {
-            errorMessage += " No response received from server.";
-          } else {
-            errorMessage += ` ${err.message}`;
-          }
+          const err = error;
+            if (typeof err === "object" && err !== null) {
+            if ("response" in err) {
+              if (err.response && typeof err.response === "object") {
+                if (err.response && typeof err.response === "object" && "status" in err.response && "statusText" in err.response) {
+                  const response = err.response as { status: number; statusText: string };
+                  errorMessage += ` Server responded with: ${response.status} ${response.statusText}`;
+                }
+              }
+                if (err.response && typeof err.response === "object") {
+                const responseData = (err.response as { data: { success: boolean; error?: string } }).data;
+                console.log("Response data:", responseData);
+                }
+            } else if ("request" in err) {
+              errorMessage += " No response received from server.";
+            } else if ("message" in err) {
+              errorMessage += ` ${err.message}`;
+            }
+            }
           
           setSyncStatus("Sync failed.");
           setError(errorMessage);

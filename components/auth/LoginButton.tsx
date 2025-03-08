@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 interface LoginButtonProps {
   provider: "google" | "github";
@@ -11,7 +10,6 @@ interface LoginButtonProps {
 
 export function LoginButton({ provider, className }: LoginButtonProps) {
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const handleLogin = async () => {
     setLoading(true);
@@ -24,7 +22,7 @@ export function LoginButton({ provider, className }: LoginButtonProps) {
         callbackUrl: "/auth/sync-after-login",
         redirect: true
       });
-      
+      console.log(res);
       // The rest of the logic will be handled in the /auth/sync-after-login page
       
     } catch (error) {

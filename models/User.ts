@@ -6,6 +6,7 @@ export interface IUser extends Document {
   image?: string;
   createdAt: Date;
   lastLogin?: Date;
+  multiverseId?: string;
 }
 
 const UserSchema = new Schema<IUser>({
@@ -13,6 +14,9 @@ const UserSchema = new Schema<IUser>({
   name: { type: String },
   image: { type: String },
   createdAt: { type: Date, default: Date.now },
+  multiverseId: {
+    type: String
+  },
   lastLogin: { type: Date },
 });
 
