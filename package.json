@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@auth/core": "^0.34.2",
+    "axios": "^1.8.2",
+    "bcrypt": "^5.1.1",
+    "mongoose": "^8.12.1",
     "next": "15.2.1",
     "next-auth": "^4.24.11",
     "oidc-token-hash": "^5.1.0",
@@ -20,6 +23,8 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/bcrypt": "^5.0.2",
+    "@types/mongoose": "^5.11.96",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

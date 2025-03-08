@@ -2,10 +2,10 @@ import React from "react";
 import { LoginButton } from "@/components/auth/LoginButton";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { authConfig } from "@/lib/auth";
+import { authOptions } from "@/lib/auth";
 
 export default async function LoginPage() {
-  const session = await getServerSession(authConfig);
+  const session = await getServerSession(authOptions);
 
   if (session) {
     redirect("/dashboard");

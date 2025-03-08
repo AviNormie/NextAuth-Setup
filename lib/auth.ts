@@ -1,9 +1,10 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
-import { signIn, signOut } from "next-auth/react"; // ✅ Correct Import
+import { signIn, signOut } from "next-auth/react"; 
 
 export const authOptions: NextAuthOptions = {
+  debug: true, // ✅ Add this to log errors in the terminal
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -32,6 +33,7 @@ export const authOptions: NextAuthOptions = {
     },
   },
 };
+
 
 // Create the NextAuth handler
 const handler = NextAuth(authOptions);
